@@ -282,7 +282,9 @@ img {
   transition: color .4s;
 }
 
-
+.button__link:hover{
+  color: var(--first-color);
+}
 
 /*=============== NEWS ===============*/
 
