@@ -44,19 +44,39 @@ const scrollUp = () =>{
 window.addEventListener('scroll', scrollUp)
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-const sections = document . querySelectorAll('section [id] ')
+const sections = document.querySelectorAll('section[id]');
 
-    const scrollActive = () =>{
-        const scrollDown = window.scrollY
+// Function to add or remove 'active-link' class based on scroll position
+const scrollActive = () => {
+    const scrollDown = window.scrollY;
 
-        sections.forEach(current =>{
-            const sectionHeight = current.offsetHeight,
-                sectionTop = current.offsetTop - 58,
-                sectionId = current.getAttribute('id'),
-                sectionsClass = document . querySelector(' . nav __ menu a[href *= ' + sectionId + ']')
-if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
-sectionsClass. classList. add('active-link')
-}else{
-sectionsClass. classList. remove('active-link')
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 58; // Adjust offset as needed
+        const sectionId = current.getAttribute('id');
+        const sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
+
+        // Check if current scroll position is within the section
+        if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
+            sectionsClass.classList.add('active-link');
+        } else {
+            sectionsClass.classList.remove('active-link');
+        }
+    });
+};
+
+// Add the scroll event listener to window
+window.addEventListener('scroll', scrollActive);
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '80px',
+    duration: 2500,
+    delay: 300,
+})
+
+sr.reveal(`.home__img, .new__data, .care__img, .contact__content, .footer`);
+sr.reveal(`.home__data, .care__list, .contact__img`, {delay: 500});
+sr.reveal(`.new__card`, {delay: 500, interval: 100});
+sr.reveal(`.shop__card`, {interval: 100});
