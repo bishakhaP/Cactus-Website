@@ -193,6 +193,11 @@ img {
   color: var(--first-color);
 }
 
+#user:hover,
+#cart:hover{
+  color: var(--first-color);
+}
+
 .nav__close{
   position: absolute;
   top: 1.15rem;
@@ -398,6 +403,11 @@ img {
   font-size: 1.25rem;
   display: grid;
   cursor: pointer;
+  transition: transform .3s;
+}
+
+.shop__button:hover{
+  transform: scale(1.15);
 }
 
 .shop__card:hover .shop__img{
@@ -538,6 +548,10 @@ img {
   font-size: var(--small-font-size);
 }
 
+.footer__copy i{
+  color: var(--first-color);
+}
+
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar{
   width: 0.6rem;
@@ -569,6 +583,7 @@ img {
 
 .scrollup:hover{
   transform: translateY(-.5rem);
+  color: var(--first-color);
 }
 
 /* Show Scroll Up */
